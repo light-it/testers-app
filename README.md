@@ -1,24 +1,20 @@
-# README
+# testers-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Requirements
+  * Ruby 2.3.1
+  * Rails 5.0.0.rc2
+  * PostgreSQL 9.5.2
 
-Things you may want to cover:
+### Deploy
+  * configure db in config/database.yml
+  * rails db:create
+  * rails db:migrate
 
-* Ruby version
 
-* System dependencies
+### Location
+  Deployed at https://testers-li.herokuapp.com/
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Author
+  Kotsiuruba Ruslan
+  Stepanenko Alex
