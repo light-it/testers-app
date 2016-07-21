@@ -26,9 +26,13 @@
     <%= f.text_field :last_name %>
   </div>
 
+  <div>
+  <%= image_tag @user.photo%>
+  </div>
+
   <div class="field">
     <%= f.label :photo %>
-    <%= f.text_field :photo %>
+    <%= f.file_field :photo %>
   </div>
 
   <div class="field">
