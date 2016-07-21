@@ -16,5 +16,5 @@
 
 
 ### Author
-  Kotsiuruba Ruslan
+  Kotsiuruba Ruslan,
   Stepanenko Alex
