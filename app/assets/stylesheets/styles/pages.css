@@ -1,0 +1,15 @@
+#content, #footer {
+	max-width: 1200px;
+	margin: auto;
+}
+
+#main {
+	width: 1000px;
+	margin: auto;
+}
+
+#footer > div {
+	padding: 15px; 
+	margin: auto;
+	width: 300px;
+}
