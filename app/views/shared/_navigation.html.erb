@@ -5,14 +5,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if user_signed_in? %>
         <ul class="nav navbar-nav">
-          <li  class="<%= 'active' if current_page?(user_path(current_user)) || 
+          <li  class="<%= 'active' if current_page?(user_path(current_user)) ||
           current_page?(edit_user_path(current_user)) %>"><%=link_to "My account", user_path(current_user) %></li>
           <li  class="<%= 'active' if !current_page?(user_path(current_user)) &&
           !current_page?(edit_user_path(current_user)) %>"><a href="/users">Users</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li ><span class="navbar-text">Здравствуйте, 
+          <li ><span class="navbar-text">Здравствуйте,
             <% if current_user.first_name != ''  && current_user.last_name != '' %>
               <%= current_user.last_name %> <%= current_user.first_name.to_s.first %>.
             <% elsif current_user.first_name != '' %>
@@ -28,7 +28,9 @@
       <% else %>
         <ul class="nav navbar-nav navbar-right">
           <li  class="<%= 'active' if current_page?(controller: 'devise/sessions', action: 'new') %>"><%= link_to 'Sing in', new_user_session_path %></li>
-          <li  class="<%= 'active' if current_page?(controller: 'devise/registrations', action: 'new') %>"><%= link_to 'Sing up', new_user_registration_path %></li>
+          <li  class="<%= 'active' if current_page?(controller: '/my_registrations', action: 'new') %>">
+            <%= link_to 'Sing up', new_user_registration_path %>
+          </li>
         </ul>
       <% end %>
     </div><!-- /.navbar-collapse -->
