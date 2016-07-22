@@ -12,10 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require 'styles/pages'
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 
  /* User sign up, sign and edit forms. */
 .border-form-div {
@@ -43,4 +43,7 @@
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+}
+#footer {
+  margin: auto;
 }

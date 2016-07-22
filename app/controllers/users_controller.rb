@@ -46,7 +46,6 @@ class UsersController < ApplicationController
     if current_user != @user
       redirect_to users_path
     end
-    byebug
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

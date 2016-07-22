@@ -2,7 +2,7 @@
 
 <h1>Users</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Email</th>
@@ -20,13 +20,9 @@
         <td><%= user.email %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= image_tag user.photo %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= image_tag user.photo, :class => "img-thumbnail" %></td>
+        <td><%= link_to 'Show', user, :class => 'btn btn-default' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>

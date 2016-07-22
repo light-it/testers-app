@@ -9,9 +9,13 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
-    <%= render 'shared/navigation' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div id="content">
+      <%= render 'shared/header' %>
+      <%= render 'shared/navigation' %>
+      <div id="main">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
