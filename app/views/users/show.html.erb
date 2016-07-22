@@ -27,5 +27,6 @@
   <%= @user.profile %>
 </p>
 
+<%= link_to 'Send profile card to email', send_profile_card_user_path(@user)%>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

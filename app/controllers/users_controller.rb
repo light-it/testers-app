@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :send_profile_card]
 
   # GET /users
   # GET /users.json
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
     if current_user != @user
       redirect_to users_path
     end
-    byebug
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -66,6 +67,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def send_profile_card
+    UserMailer.user_card_mail(@user, current_user.email).deliver!
+    redirect_to :back
   end
 
   private
