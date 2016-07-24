@@ -1,16 +1,15 @@
-var ready = function(){
-	$.formUtils.addValidator({
+$(document).on("turbolinks:load",function(){
+ $.formUtils.addValidator({
     name : 'pwd_check',
     validatorFunction : function(value, $el, config, language, $form) {
-    	var field_name=$form["context"]["id"].replace("_confirmation",'')
-    	//console.log(y)
+      var field_name=$el.attr('id').replace("_confirmation",'');
       return value === $("#"+field_name).val();
     },
     errorMessage : 'Password does not match',
     errorMessageKey: 'badPasswordConfirmation'
   });
-	$.validate({
-	  modules : 'security, file'
-	});
-}
-$(document).on("turbolinks:load",ready);
+
+  $.validate({
+    modules : 'security, file'
+  });
+});
