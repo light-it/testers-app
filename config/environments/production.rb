@@ -90,6 +90,8 @@ Rails.application.configure do
     host: 'localhost', port: 3000
   }
 
+  config.action_mailer.default_options = {from: 'rkotsuruba@gmail.com'}
+
   config.action_mailer.asset_host = 'testers-li.herokuapp.com'
 
   config.action_mailer.delivery_method = :smtp
