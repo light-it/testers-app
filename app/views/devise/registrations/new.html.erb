@@ -35,12 +35,15 @@
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "off", :class => 'form-control',
-      :data => {:validation => "length", :validation_length => "min6"} %>
+      :data => {:validation => "length", :validation_length => "min6",
+        :validation_length => "max15"} %>
     </div>
 
     <div class="form-group">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control', :data => { :validation => "required pwd_check"} %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :data => { 
+        :validation => "required pwd_check length", :validation_length => "max14"},
+        :class => 'form-control' %>
     </div>
 
     <div class="actions">
