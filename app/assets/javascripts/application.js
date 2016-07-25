@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require_tree './code/'
+//= require jquery.form-validator.min
