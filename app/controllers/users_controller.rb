@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :send_profile_card]
 
+  def about
+    render html: "<strong>About</strong><p></p>".html_safe    
+  end
+
   # GET /users
   # GET /users.json
   def index
