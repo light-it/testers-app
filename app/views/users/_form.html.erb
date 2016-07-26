@@ -45,7 +45,7 @@
       <%= image_tag @user.photo%>
       <%= f.file_field :photo, :data => {:validation => "size mime", 
         :validation_allowing =>"jpg, png, gif",
-        :validation_max_size => "512kb" } %>
+        :validation_max_size => "1024kb" } %>
     </div>
   </div>
 

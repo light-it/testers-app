@@ -79,4 +79,9 @@ $(document).on("turbolinks:load",function(){
     //  Delay
     setTimeout(self.submit(),2000);
   });
+
+  //  Disabling drag and drop on all file inputs except sing up form
+  $("form:not(#new_user) #user_photo").bind('drop dragover', function (e) {
+     e.preventDefault();
+  });
 });
