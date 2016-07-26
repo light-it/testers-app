@@ -16,3 +16,4 @@
 //= require_tree .
 //= require_tree './code/'
 //= require jquery.form-validator.min
+//= require bootstrap.min
