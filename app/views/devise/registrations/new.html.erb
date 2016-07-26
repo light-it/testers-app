@@ -7,25 +7,29 @@
 
     <div class="form-group">
       <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, :class => 'form-control' %>
+      <%= f.text_field :first_name, autofocus: true, :class => 'form-control',
+        :data => { :validation => "required length",
+          :validation_length => 'min2' } %>
     </div>
 
     <div class="form-group">
       <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, :class => 'form-control' %>
+      <%= f.text_field :last_name, :class => 'form-control',
+        :data => { :validation => "required length",
+          :validation_length => 'min2' } %>
     </div>
 
     <div class="form-group">
       <%= f.label :photo %><br />
       <%= f.file_field :photo,
-      :data => {:validation => "mime size",
+      :data => {:validation => "file_check size",
         :validation_allowing =>"jpg, png, gif",
         :validation_max_size => "1024kb" } %>
     </div>
 
     <div class="form-group">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, :class => 'form-control',
+      <%= f.email_field :email, :class => 'form-control',
       :data => {:validation => "required email"} %>
     </div>
 
@@ -35,14 +39,13 @@
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "off", :class => 'form-control',
-      :data => {:validation => "length", :validation_length => "min6",
-        :validation_length => "max15"} %>
+      :data => {:validation => "length", :validation_length => "6-15" } %>
     </div>
 
     <div class="form-group">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off", :data => { 
-        :validation => "required pwd_check length", :validation_length => "max14"},
+        :validation => "required pwd_check length", :validation_length => "6-14"},
         :class => 'form-control' %>
     </div>
 
