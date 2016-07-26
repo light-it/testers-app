@@ -3,6 +3,7 @@ $(document).on("turbolinks:load",function(){
     name : 'pwd_check',
     validatorFunction : function(value, $el, config, language, $form) {
       var field_name = $el.attr('id').replace("_confirmation",'');
+      console.log(value);
       return value === $("#"+field_name).val();
     },
     errorMessage : 'Password does not match',
@@ -16,6 +17,7 @@ $(document).on("turbolinks:load",function(){
           if (value == "")
             return; 
           var allowedFiles = [".jpg", ".jpeg", ".png"];
+          console.log(value);
           var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
           return regex.test(value.toLowerCase())
         },
@@ -75,13 +77,20 @@ $(document).on("turbolinks:load",function(){
       .addClass("has-error").append(errMsg);
     //  Ignoring checkbox 'rememder me' state
     $("form input:checkbox").prop('checked', false);
-    //alert($("form input:checkbox").is(":checked"));
+    console.log($("form input:checkbox").is(":checked"));
     //  Delay
     setTimeout(self.submit(),2000);
   });
 
-  //  Disabling drag and drop on all file inputs except sing up form
-  $("form:not(#new_user) #user_photo").bind('drop dragover', function (e) {
+  //  Disabling drag and drop on file input on edit form
+  $(".edit_form #user_photo").bind('drop dragover', function (e) {
      e.preventDefault();
   });
+
+  if(window.location.toString().indexOf("edit") != -1) {
+    console.log("");
+    $('a[href$="/users"].btn').on('click',function(event){
+      event.preventDefault();
+    });
+  }
 });
