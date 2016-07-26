@@ -67,13 +67,16 @@ $(document).on("turbolinks:load",function(){
   }
 
   //  Adding error message before form submit + delay
-    $("#new_user").submit(function(event){
-      var self = this;
-      var errMsg = '<span class="help-block form-error">This is a required field</span>';
-      event.preventDefault();
-      //console.log($("form > div:first"));
-      $("form > div:first").removeClass("has-success")
-        .addClass("has-error").append(errMsg);
-      setTimeout(self.submit(),2000);
-    });
+  $("#new_user").submit(function(event){
+    var self = this;
+    var errMsg = '<span class="help-block form-error">This is a required field</span>';
+    event.preventDefault();
+    $("form > div:first").removeClass("has-success")
+      .addClass("has-error").append(errMsg);
+    //  Ignoring checkbox 'rememder me' state
+    $("form input:checkbox").prop('checked', false);
+    //alert($("form input:checkbox").is(":checked"));
+    //  Delay
+    setTimeout(self.submit(),2000);
+  });
 });
