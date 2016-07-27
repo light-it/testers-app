@@ -45,3 +45,8 @@ body::-webkit-scrollbar-thumb {
   background-color: brown;
   outline: 1px solid slategrey;
 }
+
+#user_profile {
+	word-break: keep-all;
+	word-wrap: normal;
+}
