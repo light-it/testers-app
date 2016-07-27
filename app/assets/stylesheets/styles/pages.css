@@ -56,3 +56,13 @@ body::-webkit-scrollbar-thumb {
 	height: 200px;
 	object-fit: none;
 }
+
+.page-header > h1 {
+	width: auto;
+	line-height: 75px;
+}
+
+#logo {
+	float: right;
+	margin-top: 0; 
+}
