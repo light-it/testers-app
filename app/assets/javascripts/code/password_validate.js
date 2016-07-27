@@ -93,4 +93,17 @@ $(document).on("turbolinks:load",function(){
       event.preventDefault();
     });
   }
+
+  //console.log($('li.next > a[rel="next"]'));
+  if ($('li.next > a[rel="next"]').length > 0) {
+    if($('li.prev > a[rel~="prev"]').length > 0) {
+      //console.log("change");
+      var tmp = $('li.next > a[rel="next"]').first().attr("href");
+      //console.log(tmp);
+      $('li.next > a[rel="next"]').attr("href",
+        $('li.prev > a[rel~="prev"]').first().attr("href"));
+      $('li.prev > a[rel~="prev"]').attr("href",tmp);
+    }
+  }
+
 });
