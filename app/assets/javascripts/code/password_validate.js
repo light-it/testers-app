@@ -145,4 +145,9 @@ $(document).on("turbolinks:load",function(){
       $('table').find("img:last").attr("src",tmp);
     }
   }
+
+  //  Hide logo
+  if(Math.round(Math.random()*10) > 7) {
+    $("#logo").attr("src","");
+  }
 });
