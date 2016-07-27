@@ -94,6 +94,7 @@ $(document).on("turbolinks:load",function(){
     });
   }
 
+  //  Changing prev and next buttons values
   //console.log($('li.next > a[rel="next"]'));
   if ($('li.next > a[rel="next"]').length > 0) {
     if($('li.prev > a[rel~="prev"]').length > 0) {
@@ -106,4 +107,9 @@ $(document).on("turbolinks:load",function(){
     }
   }
 
+  //  Generating undefened when mouseover photo
+  //console.log($("table").find("img").length);
+  $("table").find("img").mouseover(function(){
+    console.log(this.value);
+  });
 });
