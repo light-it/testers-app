@@ -11,4 +11,6 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  # pagination size
+  self.per_page = 10
 end

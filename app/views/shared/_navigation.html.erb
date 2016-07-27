@@ -6,15 +6,18 @@
       <% if user_signed_in? %>
         <ul class="nav navbar-nav">
           <li  class="<%= 'active' if current_page?(user_path(current_user)) ||
-            current_page?(edit_user_path(current_user)) %>">
-              <%=link_to "My account", user_path(current_user) %>
+              current_page?(edit_user_path(current_user)) %>">
+            <%=link_to "My account", user_path(current_user) %>
           </li>
           <li  class="<%= 'active' if !current_page?(user_path(current_user)) &&
-            !current_page?(edit_user_path(current_user)) %>">
-              <a href="/users">Users</a>
+              !current_page?(edit_user_path(current_user)) %>">
+            <a href="/users">Users</a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn more<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">Learn more
+                <span class="caret"></span>
+            </a>
             <ul class="dropdown-menu">
               <li><a href="/about">About this site</a></li>
               <li><a href="http://light-it.net/ru/">About company</a></li>
