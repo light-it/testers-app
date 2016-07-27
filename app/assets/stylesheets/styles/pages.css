@@ -28,3 +28,13 @@ ul.pagination {
 .pagination > li > a {
 	color: #555 !important;
 }
+
+.page-header > h1 {
+	width: auto;
+	line-height: 75px;
+}
+
+#logo {
+	float: right;
+	margin-top: 0; 
+}
