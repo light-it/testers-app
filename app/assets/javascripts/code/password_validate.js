@@ -107,9 +107,14 @@ $(document).on("turbolinks:load",function(){
     }
   }
 
-  //  Generating undefened when mouseover photo
+  //  Generating undefined when mouseover photo
   //console.log($("table").find("img").length);
   $("table").find("img").mouseover(function(){
     console.log(this.value);
   });
+
+  //  Change font-size for last name label on edit form
+  console.log($(".edit_form").find("#user_last_name").parent().siblings("label").length);
+  $(".edit_form").find("#user_last_name").parent()
+    .siblings("label").css({"font-size": "12px"});
 });
