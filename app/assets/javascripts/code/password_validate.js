@@ -25,6 +25,21 @@ $(document).on("turbolinks:load",function(){
         errorMessageKey: 'wrongFiletype'
   });
 
+  // file validator with bug (doesnt provide error message)
+  $.formUtils.addValidator({
+        name : 'file_chek',
+        validatorFunction : function(value, $el, config, language, $form) {
+          if (value == "")
+            return; 
+          var allowedFiles = [".jpg", ".jpeg", ".png", ".gif"];
+          console.log(value);
+          var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+          return regex.test(value.toLowerCase())
+        },
+        errorMessage : '',
+        errorMessageKey: 'wrongFiletype'
+  });
+
   // email check with bug (no message displayed)
   $.formUtils.addValidator({
       name: 'email_check',
