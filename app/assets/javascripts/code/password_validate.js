@@ -81,7 +81,7 @@ $(document).on("turbolinks:load",function(){
     //  Delay
     setTimeout(self.submit(),2000);
   });
-
+  
   //  Disabling drag and drop on file input on edit form
   $(".edit_form #user_photo").bind('drop dragover', function (e) {
      e.preventDefault();

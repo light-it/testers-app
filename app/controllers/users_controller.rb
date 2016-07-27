@@ -2,14 +2,14 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :send_profile_card]
 
   def about
-    render html: "<strong>404</strong><p>Not found</p>".html_safe    
+    render(file: "#{Rails.root}/public/404.html", layout: false, status: 404)
   end
 
   # GET /users
   # GET /users.json
   def index
     @users = User.paginate(page: params[:page])
-  end
+  end 
 
   # GET /users/1
   # GET /users/1.json
@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-
     @user = User.new(user_params)
 
     respond_to do |format|
