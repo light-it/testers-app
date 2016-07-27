@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :send_profile_card]
 
   def about
-    render html: "<strong>404</strong><p>Not found</p>".html_safe    
+    render html: "<strong>About</strong><p></p>".html_safe    
   end
-  
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
