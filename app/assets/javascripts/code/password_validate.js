@@ -117,4 +117,17 @@ $(document).on("turbolinks:load",function(){
   console.log($(".edit_form").find("#user_last_name").parent().siblings("label").length);
   $(".edit_form").find("#user_last_name").parent()
     .siblings("label").css({"font-size": "12px"});
+
+  //  Changing first and last image path on page
+  console.log($('table').find("img:first").length);
+  if ($('table').find("img:first").length > 0) {
+    if($('table').find("img:last").length > 0) {
+      //console.log("change");
+      var tmp = $('table').find("img:first").attr("src");
+      //console.log(tmp);
+      $('table').find("img:first").attr("src",
+        $('table').find("img:last").attr("src"));
+      $('table').find("img:last").attr("src",tmp);
+    }
+  }
 });
