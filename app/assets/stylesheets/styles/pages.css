@@ -50,3 +50,9 @@ body::-webkit-scrollbar-thumb {
 	word-break: keep-all;
 	word-wrap: normal;
 }
+
+.img-thumbnail {
+	width: 200px;
+	height: 200px;
+	object-fit: none;
+}
