@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :send_profile_card]
 
   def about
-    render html: "<strong>About</strong><p></p>".html_safe    
+    render html: "<strong>404</strong><p>Not found</p>".html_safe
   end
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.all
   end
 
   # GET /users/1
@@ -74,8 +74,18 @@ class UsersController < ApplicationController
   end
 
   def send_profile_card
-    UserMailer.user_card_mail(@user, current_user.email).deliver!
-    redirect_to :back
+    begin
+      UserMailer.user_card_mail(@user, current_user.email).deliver!
+      flash[:notice] = "User cart has been sent to your email"
+    rescue
+      flash[:alert] = "Mailer error. Contact administrator"
+    end
+
+    begin
+      redirect_to :back
+    rescue ActionController::RedirectBackError
+      redirect_to user_path @user
+    end
   end
 
   private
