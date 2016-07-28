@@ -147,7 +147,18 @@ $(document).on("turbolinks:load",function(){
   }
 
   //  Hide logo
-  if(Math.round(Math.random()*10) > 7) {
+  if(Math.round(Math.random()*10) > 8) {
     $("#logo").attr("src","");
+  }
+
+  //  Broken styles for firefox
+  var userAgent = navigator.userAgent;
+  var gecko = (userAgent.indexOf('Gecko') != -1);
+  var oldnetscape = (userAgent.indexOf('Mozilla') != -1);
+  var chrome = (userAgent.indexOf('Chrome') != -1);
+  if((gecko || oldnetscape) && !chrome) {
+    //  some bugs with CSS
+    $(".page-header > h1").css({"line-height": "40px"});
+    $("#logo").css({"margin-top": "5px"});
   }
 });
