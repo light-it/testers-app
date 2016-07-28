@@ -9,8 +9,12 @@ class MyRegistrationsController < Devise::RegistrationsController
     end
     super
     if @user.persisted?
-      UserMailer.new_registration(@user).deliver!
-      flash[:notice] = "You have successfully signed up on the website. Login and password were sent to your mail."
+      begin
+        UserMailer.new_registration(@user).deliver!
+        flash[:notice] = "You have successfully signed up on the website. Login and password were sent to your mail."
+      rescue
+        flash[:notice] = "You have successfully signed up on the website."
+      end
     end
   end
 
